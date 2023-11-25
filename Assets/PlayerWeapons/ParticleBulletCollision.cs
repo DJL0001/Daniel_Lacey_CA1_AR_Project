@@ -9,7 +9,7 @@ public class ParticleBulletCollision : MonoBehaviour
     public ParticleSystem bulletParticle;
 
     public GameObject bulletHit;
-
+    
     List<ParticleCollisionEvent> colEvents = new List<ParticleCollisionEvent>();
 
     private void Update()
@@ -39,7 +39,7 @@ public class ParticleBulletCollision : MonoBehaviour
             Instantiate(bulletHit, colEvents[i].intersection, Quaternion.LookRotation(colEvents[i].normal))
        } */
 
-        if(other.TryGetComponent(out EnemyTEST en))
+        if(other.TryGetComponent(out fighter1 en))
         {
             en.TakeDamage(damage);
         }

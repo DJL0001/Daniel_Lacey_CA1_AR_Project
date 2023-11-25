@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FireMinigun : MonoBehaviour
+
 {
     private Animator mAnimator;
 
@@ -31,6 +32,7 @@ public class FireMinigun : MonoBehaviour
             {
                 mAnimator.SetTrigger("endFire");
             }
+
         }
     }
 }
