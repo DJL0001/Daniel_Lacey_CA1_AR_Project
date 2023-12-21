@@ -36,18 +36,19 @@ public class ParticleBulletCollision : MonoBehaviour
         }
     }
 
-    // This line of code defines a private function called OnParticleCollision which performs a task. It is called when a particle hits a collider. It is a void which means that it does not return any value. Its parameter is called "other" which is a GameObject. The OnParticleCollison function is called when a particle from the ParticleSystem collides with a GameObject. //
+    // This line of code defines a private function called OnParticleCollision which performs a task. It is called when a particle hits a collider. It is a void which means that it does not return any value. Its parameter is called "other" which is a GameObject. The OnParticleCollison function is called when a particle from the ParticleSystem collides with a GameObject.
     private void OnParticleCollision(GameObject other)
     {
-        // This line of code declares a variable called "events" and it is an "int" which is a whole number. A value is assigned to the int. 
+        // This line of code declares an int variable called "events" which stores the number of collision events as an integer. "bulletParticle" references the particle system component. "GetCollisonEvents" that has two parameters: "other" which represents the GameObject that collided with the particle system and "colEvents" that holds a list of ParticleCollisionEvent objects. The number of events is returned as an integer and stored in events which will be used to apply the damage number to an enemy.
        int events = bulletParticle.GetCollisionEvents(other, colEvents);
        
-
+        // "TryGetComponent" checks that the "other" GameObject has the component of type "fighter1" and will pass out "f1" as an out parameter. If the "fighter1" component is found it will assign it to the "f1" variable. If the "fighter1" is found then the "TakeDamage" method applies damage to the fighter1 component. The damage amount is declared as a public float at the start of the script.
         if (other.TryGetComponent(out fighter1 f1))
         {
             f1.TakeDamage(damage);
         }
 
+        // This is exactly the same code except that it replaces "fighter1" with "heavyfighter1". There may be a better way of doing this besides listing every enemy in here and repeating the code.
         if (other.TryGetComponent(out heavyfighter1 hf1))
         {
             hf1.TakeDamage(damage);
@@ -55,5 +56,3 @@ public class ParticleBulletCollision : MonoBehaviour
     
     }
 }
-
-
